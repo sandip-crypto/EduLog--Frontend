@@ -71,7 +71,7 @@ const Dashboard = () => {
         ));
         toast.success('Learning item updated successfully');
       } else {
-        const response = await axios.post(`${API_URL}/learning`, itemData);
+        const response = await axios.post(`${API_URL}/api/learning`, itemData);
         setLearningItems([response.data, ...learningItems]);
         toast.success('Learning item created successfully');
       }
