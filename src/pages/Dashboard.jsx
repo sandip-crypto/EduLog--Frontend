@@ -29,7 +29,7 @@ const Dashboard = () => {
 
   const fetchLearningItems = async () => {
     try {
-      const response = await axios.get(`${API_URL}/learning`);
+      const response = await axios.get(`${API_URL}/api/learning`);
       setLearningItems(response.data);
     } catch (error) {
       toast.error('Failed to fetch learning items');
@@ -65,7 +65,7 @@ const Dashboard = () => {
   const handleSaveItem = async (itemData) => {
     try {
       if (editingItem) {
-        const response = await axios.put(`${API_URL}/learning/${editingItem._id}`, itemData);
+        const response = await axios.put(`${API_URL}/api/learning/${editingItem._id}`, itemData);
         setLearningItems(learningItems.map(item => 
           item._id === editingItem._id ? response.data : item
         ));
@@ -84,7 +84,7 @@ const Dashboard = () => {
 
   const handleStatusUpdate = async (itemId, newStatus) => {
     try {
-      const response = await axios.put(`${API_URL}/learning/${itemId}`, { status: newStatus });
+      const response = await axios.put(`${API_URL}/api/learning/${itemId}`, { status: newStatus });
       setLearningItems(learningItems.map(item => 
         item._id === itemId ? response.data : item
       ));
