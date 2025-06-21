@@ -52,7 +52,7 @@ const Dashboard = () => {
   const handleDeleteItem = async (itemId) => {
     if (window.confirm('Are you sure you want to delete this learning item?')) {
       try {
-        await axios.delete(`${API_URL}/learning/${itemId}`);
+        await axios.delete(`${API_URL}/api/learning/${itemId}`);
         setLearningItems(learningItems.filter(item => item._id !== itemId));
         toast.success('Learning item deleted successfully');
       } catch (error) {
